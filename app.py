@@ -2,12 +2,15 @@ import os
 import sqlite3
 from datetime import datetime, timedelta
 from flask import Flask, request, session, redirect, url_for, render_template, g
+from init_db import init_db
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-key")
 
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")
 DB_PATH = os.path.join(os.path.dirname(__file__), "presence.db")
+
+init_db()
 SESSION_DUREE_HEURES = 4
 
 
