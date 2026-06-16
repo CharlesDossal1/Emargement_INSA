@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+/* --- Page scan --- */
+
+.scan-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.scan-page h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.scan-page .ok {
+  font-size: 2rem;
+  color: #2a7a2a;
+  font-weight: bold;
+}
+
+.scan-page .deja {
+  font-size: 1.6rem;
+  color: #666;
+}
+
+.scan-page .info {
+  font-size: 1.2rem;
+  color: #b05000;
+}
+
+.scan-page .erreur {
+  font-size: 1.2rem;
+  color: #c00;
+}
+
+/* --- Page admin --- */
+
+.admin-page header h1 {
+  font-size: 1.1rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.admin-nav {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.admin-nav a {
+  background: #1a5fb4;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.admin-nav a:last-child {
+  background: #888;
+}
+
+.session-en-cours {
+  background: white;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.session-titre {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.compteur {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1a5fb4;
+  margin: 0.5rem 0;
+}
+
+.liste-presences {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.liste-presences li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.liste-presences .heure {
+  float: right;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.no-session {
+  color: #888;
+  margin-top: 1rem;
+}
+
+/* --- Formulaires --- */
+
+.login-form, .form-section {
+  background: white;
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  max-width: 320px;
+}
+
+.login-form h2 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+input[type="password"],
+input[type="text"],
+select {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.4rem 0 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+button[type="submit"] {
+  background: #1a5fb4;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+button[type="submit"]:active {
+  background: #154b8a;
+}
+
+/* --- Historique --- */
+
+.historique-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.historique-table th {
+  background: #1a5fb4;
+  color: white;
+  padding: 0.6rem;
+  text-align: left;
+}
+
+.historique-table td {
+  padding: 0.6rem;
+  border-bottom: 1px solid #eee;
+}
+
+.historique-table a {
+  color: #1a5fb4;
+}
+
+/* --- Liens génériques --- */
+
+a {
+  color: #1a5fb4;
+}
+
+p a {
+  font-size: 0.9rem;
+}
+
+.session-date {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}

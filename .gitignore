@@ -1,0 +1,7 @@
+presence.db
+qrcodes_5A.pdf
+__pycache__/
+*.pyc
+.DS_Store
+*.egg-info/
+.env

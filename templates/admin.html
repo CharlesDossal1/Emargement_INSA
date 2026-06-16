@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin — Présence</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  {% if not login and sess %}
+  <meta http-equiv="refresh" content="5">
+  {% endif %}
+</head>
+<body class="admin-page">
+  <header>
+    <h1>Contrôle de présence — GMM INSA Toulouse</h1>
+  </header>
+
+  {% if login %}
+    <section class="login-form">
+      <h2>Connexion</h2>
+      <form method="post" action="{{ url_for('admin_login') }}">
+        <input type="password" name="password" placeholder="Mot de passe" autofocus>
+        <button type="submit">Connexion</button>
+      </form>
+    </section>
+
+  {% else %}
+    <nav class="admin-nav">
+      <a href="{{ url_for('nouvelle_session') }}">+ Nouvelle session</a>
+      <a href="{{ url_for('historique') }}">Historique</a>
+      <a href="{{ url_for('admin_logout') }}">Déconnexion</a>
+    </nav>
+
+    {% if sess %}
+      <section class="session-en-cours">
+        <p class="session-titre">Session en cours : <strong>{{ sess['cours'] }}</strong> — Groupe {{ sess['groupe'] }} — {{ sess['date_heure'] }}</p>
+        <p class="compteur">{{ presences|length }} présent{% if presences|length > 1 %}s{% endif %}</p>
+        <ul class="liste-presences">
+          {% for p in presences %}
+            <li>{{ p['nom'] }} {{ p['prenom'] }} <span class="heure">{{ p['timestamp'][11:16] }}</span></li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% else %}
+      <p class="no-session">Aucune session active. <a href="{{ url_for('nouvelle_session') }}">Démarrer une session →</a></p>
+    {% endif %}
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Présence</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="scan-page">
+  {% if erreur %}
+    <p class="erreur">{{ erreur }}</p>
+  {% elif etudiant %}
+    <h1>Bonjour {{ etudiant['prenom'] }} {{ etudiant['nom'] }}</h1>
+    {% if message %}
+      <p class="info">{{ message }}</p>
+    {% elif deja %}
+      <p class="deja">ℹ️ Déjà enregistré</p>
+    {% else %}
+      <p class="ok">✓ Présence enregistrée</p>
+    {% endif %}
+  {% endif %}
+</body>
+</html>

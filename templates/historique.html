@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Historique — Présence</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="admin-page">
+  <header>
+    <h1>Historique des sessions</h1>
+  </header>
+
+  {% if sessions %}
+    <table class="historique-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Cours</th>
+          <th>Groupe</th>
+          <th>Présents</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in sessions %}
+          <tr>
+            <td>{{ s['date_heure'] }}</td>
+            <td>{{ s['cours'] }}</td>
+            <td>{{ s['groupe'] }}</td>
+            <td>{{ s['nb_presents'] }}</td>
+            <td><a href="{{ url_for('detail_session', session_id=s['id']) }}">Détail</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Aucune session enregistrée.</p>
+  {% endif %}
+
+  <p><a href="{{ url_for('admin') }}">← Retour</a></p>
+</body>
+</html>

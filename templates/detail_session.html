@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Session {{ sess['cours'] }} — Présence</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="admin-page">
+  <header>
+    <h1>{{ sess['cours'] }} — Groupe {{ sess['groupe'] }}</h1>
+    <p class="session-date">{{ sess['date_heure'] }}</p>
+  </header>
+
+  <section>
+    <p class="compteur">{{ presences|length }} présent{% if presences|length > 1 %}s{% endif %}</p>
+    <ul class="liste-presences">
+      {% for p in presences %}
+        <li>{{ p['nom'] }} {{ p['prenom'] }} <span class="heure">{{ p['timestamp'][11:16] }}</span></li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <p><a href="{{ url_for('historique') }}">← Historique</a></p>
+</body>
+</html>
